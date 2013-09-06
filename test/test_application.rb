@@ -23,4 +23,10 @@ class RulersAppTest < Test::Unit::TestCase
     get "/"
     assert_not_nil File.open("debug.txt", "r")
   end
+
+  def test_exception
+    get "/quotes/exception"
+
+    refuse last_response.ok?
+  end
 end
